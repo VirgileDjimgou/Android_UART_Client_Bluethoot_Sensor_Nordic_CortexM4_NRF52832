@@ -8,10 +8,10 @@ This app created as a demonstration for handling 128 bit proprietary UUID servic
 
 with a Share of Smartphone Sensor  such as GPS , Accelerometer , gyroscope.
 
-The current version is 3.0
+The current version is 4.0
 
 This source code can be compiled with Android Studio and Gradle. 
 
 ### Note
-- Android 4.3 or later is required.
+- Android minSdkVersion 21  or later is required.
 - Android Studio supported 

@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion 18
-    buildToolsVersion "23.0.0"
+    buildToolsVersion '23.0.0'
 
     defaultConfig {
-        applicationId "com.nordicsemi.nrfUARTv2"
-        minSdkVersion 21
-        targetSdkVersion 24
-        versionCode 4
-        versionName "4.0"
+        applicationId "com.rutronik.demo"
+        minSdkVersion 18
+        targetSdkVersion 18
+
     }
 
 

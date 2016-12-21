@@ -4,7 +4,7 @@
   -->
 <resources>
 
-    <string name="app_name">nRF UART v2.0</string>
+    <string name="app_name">Rutronik Demo</string>
     <string name="device">Device:</string>
     <string name="no_device">&lt;Select a device&gt;</string>
     <string name="select_device">Select a device</string>
@@ -51,5 +51,12 @@
     <string name="ble_not_supported">Bluetooth Low Energy not supported</string>
     <string name="scan">Scan</string>
     <string name="cancel">Cancel</string>
-    
+
+
+
+
+
+
+
+
 </resources>

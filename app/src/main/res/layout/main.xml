@@ -4,18 +4,31 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <Button
+        android:id="@+id/btn_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Connect" />
+
+    <Button
+        android:text="Demo 1 "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8" />
+
+    <Button
+        android:text="Demo 2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btn_select"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:text="Connect" />
     </LinearLayout>
 
     <LinearLayout
