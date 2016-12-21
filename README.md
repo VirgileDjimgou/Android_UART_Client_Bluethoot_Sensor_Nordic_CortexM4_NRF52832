@@ -6,7 +6,9 @@ This app works with the ble_app_uart project in the nRF51 SDK and the Bluetooth 
 
 This app created as a demonstration for handling 128 bit proprietary UUID service and characteristics. 
 
-The current version is 2.0.1 
+with a Share of Smartphone Sensor  such as GPS , Accelerometer , gyroscope.
+
+The current version is 3.0
 
 This source code can be compiled with Android Studio and Gradle. 
 
