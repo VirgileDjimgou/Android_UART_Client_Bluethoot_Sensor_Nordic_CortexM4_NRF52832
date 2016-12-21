@@ -5,8 +5,10 @@ android {
 
     defaultConfig {
         applicationId "com.nordicsemi.nrfUARTv2"
-        minSdkVersion 18
-        targetSdkVersion 18
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 4
+        versionName "4.0"
     }
 
 
