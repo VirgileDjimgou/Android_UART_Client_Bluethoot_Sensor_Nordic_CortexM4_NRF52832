@@ -15,13 +15,13 @@
         android:text="Demo 1 "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button8" />
+        android:id="@+id/Demo_1" />
 
     <Button
         android:text="Demo 2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button6" />
+        android:id="@+id/Demo_2" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"

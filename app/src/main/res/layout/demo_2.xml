@@ -13,11 +13,46 @@
         android:id="@+id/imageView"
         android:layout_weight="0.10" />
 
-    <TextView
-        android:text="Demo  2   (Description von Demo 2   ....)"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/Led_1"
+        android:layout_weight="0.10" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Led_2"
+        android:layout_weight="0.10" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Led_3"
+        android:layout_weight="0.10" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Led_4"
+        android:layout_weight="0.10" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Led_5"
+        android:layout_weight="0.10" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Led_6"
+        android:layout_weight="0.10" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar_Rot"
         android:layout_weight="0.10" />
 
 </LinearLayout>

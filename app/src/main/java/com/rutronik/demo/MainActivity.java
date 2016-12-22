@@ -59,6 +59,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rutronik.gps.GPS_Temp_Press_Activity;
+
 public class MainActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
     private static final int REQUEST_SELECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
@@ -70,14 +72,14 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
 
     TextView mRemoteRssiVal;
     RadioGroup mRg;
-    private int mState = UART_PROFILE_DISCONNECTED;
-    private UartService mService = null;
-    private BluetoothDevice mDevice = null;
-    private BluetoothAdapter mBtAdapter = null;
-    private ListView messageListView;
-    private ArrayAdapter<String> listAdapter;
-    private Button btnConnectDisconnect,btnSend;
-    private EditText edtMessage;
+    public static  int mState = UART_PROFILE_DISCONNECTED;
+    public static  UartService mService = null;
+    public static  BluetoothDevice mDevice = null;
+    public static  BluetoothAdapter mBtAdapter = null;
+    public static ListView messageListView;
+    public static  ArrayAdapter<String> listAdapter;
+    public static  Button btnConnectDisconnect,btnSend;
+    public static EditText edtMessage;
 
     // Implementation Demo 1 und Demo 2
     private Button Demo_1 , Demo_2;
@@ -99,9 +101,41 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         btnConnectDisconnect=(Button) findViewById(R.id.btn_select);
         btnSend=(Button) findViewById(R.id.sendButton);
         edtMessage = (EditText) findViewById(R.id.sendText);
+
+        //Attach  Button   demo_1 and Demo_2  to   Layout Object  ...
+        Demo_1 = (Button) findViewById(R.id.Demo_1);
+        Demo_2 = (Button) findViewById(R.id.Demo_2);
+
         service_init();
 
-     
+        // Button Demo 1 and Demo 2  disable
+        // we must initialise a Bluethoot before  we use Button Demo 1 and Demo 2 ...
+        Demo_1.setEnabled(false);
+        Demo_2.setEnabled(false);
+
+        // Handle Demo  1 ...
+        Demo_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GPS_Temp_Press_Activity.class);
+                startActivity(intent);
+               // finish();
+
+            }
+        });
+
+        // Handle Demo 2
+        Demo_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Demo_2_Activity.class);
+                startActivity(intent);
+                // finish();
+
+            }
+        });
+
+
        
         // Handle Disconnect & Connect button
         btnConnectDisconnect.setOnClickListener(new View.OnClickListener() {
@@ -124,8 +158,11 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         				if (mDevice!=null)
         				{
         					mService.disconnect();
-        					
-        				}
+                            // when Service is diconnect   all  Demo must be disable ....
+                            Demo_1.setEnabled(false);
+                            Demo_2.setEnabled(false);
+
+                        }
         			}
                 }
             }
@@ -204,6 +241,10 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                              listAdapter.add("["+currentDateTimeString+"] Connected to: "+ mDevice.getName());
                         	 	messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
                              mState = UART_PROFILE_CONNECTED;
+
+                         //  Enable Demo Button ...
+                         Demo_1.setEnabled(true);
+                         Demo_2.setEnabled(true);
                      }
             	 });
             }
@@ -384,7 +425,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
             startMain.addCategory(Intent.CATEGORY_HOME);
             startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(startMain);
-            showMessage("nRFUART's running in background.\n             Disconnect to exit");
+            showMessage("Rutronik  Demo  nRFUART's running in background.\n             Disconnect to exit");
         }
         else {
             new AlertDialog.Builder(this)

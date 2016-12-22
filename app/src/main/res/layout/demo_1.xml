@@ -4,7 +4,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    tools:background="@color/btn_login_bg">
+    tools:background="@color/btn_login_bg"
+    android:id="@+id/Sensor">
 
     <ImageView
         android:src="@mipmap/rutronik"
@@ -13,11 +14,59 @@
         android:id="@+id/imageView"
         android:layout_weight="0.10" />
 
-    <TextView
-        android:text="Demo  1  (Description vo Demo  1 ....)"
+    <Button
+        android:text="Initialise   Sensor "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/Initialise"
+        android:layout_weight="0.02" />
+
+    <TextView
+        android:text="Latitude  GPS  Sensor : "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Latitude"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:text="Longitude Gps Sensor  : "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Long"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:text="Fake Temperatur Sensor : "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TempView"
+        android:layout_weight="0.10" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar_temp"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:text="Fake Pressure Sensor : "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PressureView"
+        android:layout_weight="0.10" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar_pressure"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:text="Demo  Description :
+Transfer of gps and Fake Temperatur  sensors via bluethoot Serial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
         android:layout_weight="0.10" />
 
 </LinearLayout>
