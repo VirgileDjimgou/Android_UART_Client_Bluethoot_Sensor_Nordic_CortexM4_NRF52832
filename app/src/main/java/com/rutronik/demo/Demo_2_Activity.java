@@ -56,9 +56,6 @@ public class Demo_2_Activity extends Activity{
         L4 = (Button) findViewById(R.id.Led_4);
         L5 = (Button) findViewById(R.id.Led_5);
         L6 = (Button) findViewById(R.id.Led_6);
-       // animation_1();
-
-
 
     }
 
