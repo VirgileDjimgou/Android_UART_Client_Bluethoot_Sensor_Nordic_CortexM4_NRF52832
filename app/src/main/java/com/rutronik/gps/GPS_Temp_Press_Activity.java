@@ -131,7 +131,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 				// \n is for new line
 		        	Toast.makeText(getApplicationContext(), "Alle Gauge Initialisieren ... " , Toast.LENGTH_LONG).show();
 
-					String message = "X";
+					String message = "R";
 					byte[] value = new byte[0];
 					try {
 						value = message.getBytes("UTF-8");
@@ -154,7 +154,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 				// \n is for new line
 				Toast.makeText(getApplicationContext(), " alle Gauge in der Mitte Value (50) setzen  ..... ", Toast.LENGTH_LONG).show();
 
-				String message = "Y";
+				String message = "Z";
 				byte[] value = new byte[0];
 				try {
 					value = message.getBytes("UTF-8");
@@ -167,7 +167,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 			}
 		});
 
-		Max= (Button) findViewById(R.id.Initialise);
+		Max= (Button) findViewById(R.id.Max);
 
 
 
@@ -178,7 +178,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 				// \n is for new line
 				Toast.makeText(getApplicationContext(), "alle Gauge in Max Value (100)  setzen ....." , Toast.LENGTH_LONG).show();
 
-				String message = "Z";
+				String message = "M";
 				byte[] value = new byte[0];
 				try {
 					value = message.getBytes("UTF-8");

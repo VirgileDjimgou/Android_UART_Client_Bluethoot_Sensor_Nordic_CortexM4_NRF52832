@@ -56,6 +56,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,8 +82,13 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
     public static  Button btnConnectDisconnect,btnSend;
     public static EditText edtMessage;
 
+    public static String Animation_Demo = "X";
+    public  static int  ascii = 0;
+
+
     // Implementation Demo 1 und Demo 2
     private Button Demo_1 , Demo_2;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -284,7 +290,12 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                          	String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
                         	 	listAdapter.add("["+currentDateTimeString+"] RX: "+text);
                         	 	messageListView.smoothScrollToPosition(listAdapter.getCount() - 1);
-                        	
+                             try {
+                                 Filter(text);
+                             }catch(Exception ex){
+
+                             }
+
                          } catch (Exception e) {
                              Log.e(TAG, e.toString());
                          }
@@ -441,6 +452,38 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
             })
             .setNegativeButton(R.string.popup_no, null)
             .show();
+        }
+    }
+
+    public void Filter ( String line){
+        String[] Teilen = "bloc_Alpha = block_Beta".split("="); // Initialiserung von zu benutzete Fields
+        // String trame = line.replaceAll("\\s+","");
+        Teilen = line.split("=");
+        String prefixe = Teilen[0].replaceAll("\\s+",""); // in if Anweisung  zu prufen
+        String radical = Teilen[1].replaceAll("\\s+",""); // Value zu  ersetzen ....  in db_infos klasse
+        // ici le radical est considere comme koi ??? ... fait attention ici
+        //  ondoit en realité penser a implementer un parent avec la fonction
+        //  doit etre raccorde avec la fonction Initial Inztance .... si possible
+        // Toast.makeText(getApplicationContext(), "First Bloc " + prefixe + "     Second Bloc ... " + radical , Toast.LENGTH_LONG).show();
+        System.out.println(prefixe);
+        System.out.println(radical);
+
+
+        if (prefixe.equalsIgnoreCase("R")){
+            char c = radical.charAt(0);
+            // char character = radical;
+            ascii = (int) c;
+
+            //Toast.makeText(getApplicationContext(), "First Bloc R  " + prefixe + " Second Bloc ... " + ascii , Toast.LENGTH_LONG).show();
+        }
+        if (prefixe.equalsIgnoreCase("B")){
+            Animation_Demo = "B";
+            Toast.makeText(getApplicationContext(), "Animation 1 gestartet" , Toast.LENGTH_LONG).show();
+        }
+        if (prefixe.equalsIgnoreCase("C") ){
+            Animation_Demo = "C";
+            Toast.makeText(getApplicationContext(), "Animation 2 gestartet" , Toast.LENGTH_LONG).show();
+
         }
     }
 }

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,9 +32,9 @@ import java.util.TimerTask;
 import static com.rutronik.demo.R.color.disabled;
 
 public class Demo_2_Activity extends Activity{
-    Timer timer;
-    TimerTask timerTask;
-    final Handler handler = new Handler();
+    private Timer timer;
+    private TimerTask timerTask;
+    private Handler handler = new Handler();
     int i = 0;
 
 
@@ -61,10 +62,26 @@ public class Demo_2_Activity extends Activity{
 
     @Override
     protected void onResume() {
+        Log.d("R","Reseme von Demo_2");
+        Toast.makeText(getApplicationContext(), " Resume von Demo 2  ", Toast.LENGTH_LONG).show();
+
         super.onResume();
 
         //onResume we start our timer so it can start when the app comes from the background
         startTimer();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d("Op", "onPause");
+        Toast.makeText(getApplicationContext(), " Timer wurde gestoppt .... " , Toast.LENGTH_LONG).show();
+        StopTimer();
+
+        // timer.purge();
+       //  timerTask.
+        super.onPause();
+
+
     }
 
     public void startTimer() {
@@ -75,7 +92,29 @@ public class Demo_2_Activity extends Activity{
         initializeTimerTask();
 
         //schedule the timer, after the first 5000ms the TimerTask will run every 10000ms
-        timer.schedule(timerTask, 1000, 1000); //
+        timer.schedule(timerTask, 200, 200); //
+    }
+
+    public void StopTimer()
+    {
+       try{
+           if (timer != null) {
+               timer.cancel();
+               timer = null;
+           }
+
+       }catch(Exception ex)
+       {
+       // Exception Message
+           Log.d("StpT ", ex.toString());
+           System.out.println("ein Exception wurde getroffen ..... " + ex.toString());
+           // println von Ecception mit Toast ...wenn moglic ist
+           Toast.makeText(getApplicationContext(), " Exception wurde getroffen .. " + ex.toString(), Toast.LENGTH_LONG).show();
+
+
+
+       }
+
     }
 
     public void stoptimertask(View v) {
@@ -86,6 +125,8 @@ public class Demo_2_Activity extends Activity{
         }
     }
 
+
+
     public void initializeTimerTask() {
 
         timerTask = new TimerTask() {
@@ -95,7 +136,23 @@ public class Demo_2_Activity extends Activity{
                 handler.post(new Runnable() {
                     public void run() {
                         // create class object
-                        animation_2();
+                        if (MainActivity.Animation_Demo.equalsIgnoreCase("B")){
+                            //Toast.makeText(getApplicationContext(), "Animation 1 gestartet" , Toast.LENGTH_LONG).show();
+
+                            animation_1();
+                        }
+                        if (MainActivity.Animation_Demo.equalsIgnoreCase("C")){
+                            // Toast.makeText(getApplicationContext(), "Animation 2 gestartet" , Toast.LENGTH_LONG).show();
+
+                            animation_2();
+
+                        }else{
+                           // Reset();
+                            // null
+                        }
+                        RotarySensor.setProgress(MainActivity.ascii);
+
+
 
 
                     }
