@@ -15,11 +15,23 @@
         android:layout_weight="0.10" />
 
     <Button
-        android:text="Initialise   Sensor "
+        android:text="Gauge Init"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Initialise"
         android:layout_weight="0.02" />
+
+    <Button
+        android:text="Gauge  Mitte "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Mitte" />
+
+    <Button
+        android:text="Gauge Max Value "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Max" />
 
     <TextView
         android:text="Latitude  GPS  Sensor : "

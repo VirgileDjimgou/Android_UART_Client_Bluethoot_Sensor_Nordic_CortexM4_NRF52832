@@ -24,7 +24,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 	Timer timer;
 	TimerTask timerTask;
 
-	public static Button btnShowLocation;
+	public static Button Initialise , Mitte , Max;
 	public static TextView Latitude_Text , Longitude_Text ;
 	//we are going to use a handler to be able to run in our TimerTask
 	final Handler handler = new Handler();
@@ -120,27 +120,18 @@ public class GPS_Temp_Press_Activity extends Activity {
 
 		Latitude_Text = (TextView) findViewById(R.id.Latitude);
 		Longitude_Text = (TextView) findViewById(R.id.Long);
-        btnShowLocation = (Button) findViewById(R.id.Initialise);
+        Initialise= (Button) findViewById(R.id.Initialise);
 
 
 
-		btnShowLocation.setOnClickListener(new View.OnClickListener() {
+		Initialise.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				// create class object
-		        gps = new GPSTracker(GPS_Temp_Press_Activity.this);
+				// \n is for new line
+		        	Toast.makeText(getApplicationContext(), "Alle Gauge Initialisieren ... " , Toast.LENGTH_LONG).show();
 
-				// check if GPS enabled		
-		        if(gps.canGetLocation()){
-
-		        	latitude = gps.getLatitude();
-		        	longitude = gps.getLongitude();
-
-		        	// \n is for new line
-		        	Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-
-					String message = "tttttt";
+					String message = "X";
 					byte[] value = new byte[0];
 					try {
 						value = message.getBytes("UTF-8");
@@ -148,12 +139,54 @@ public class GPS_Temp_Press_Activity extends Activity {
 						e.printStackTrace();
 					}
 					MainActivity.mService.writeRXCharacteristic(value);
-		        }else{
-		        	// can't get location
-		        	// GPS or Network is not enabled
-		        	// Ask user to enable GPS/network in settings
-		        	gps.showSettingsAlert();
-		        }
+
+
+			}
+		});
+
+		Mitte= (Button) findViewById(R.id.Mitte);
+
+
+		Mitte.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// \n is for new line
+				Toast.makeText(getApplicationContext(), " alle Gauge in der Mitte Value (50) setzen  ..... ", Toast.LENGTH_LONG).show();
+
+				String message = "Y";
+				byte[] value = new byte[0];
+				try {
+					value = message.getBytes("UTF-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				MainActivity.mService.writeRXCharacteristic(value);
+
+
+			}
+		});
+
+		Max= (Button) findViewById(R.id.Initialise);
+
+
+
+		Max.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// \n is for new line
+				Toast.makeText(getApplicationContext(), "alle Gauge in Max Value (100)  setzen ....." , Toast.LENGTH_LONG).show();
+
+				String message = "Z";
+				byte[] value = new byte[0];
+				try {
+					value = message.getBytes("UTF-8");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
+				MainActivity.mService.writeRXCharacteristic(value);
+
 
 			}
 		});
