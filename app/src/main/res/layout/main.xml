@@ -23,6 +23,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/Demo_2" />
 
+    <Button
+        android:text="Video Remote Control "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Video" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"

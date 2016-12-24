@@ -87,7 +87,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
 
 
     // Implementation Demo 1 und Demo 2
-    private Button Demo_1 , Demo_2;
+    private Button Demo_1 , Demo_2 , Video_Remote;
 
 
     @Override
@@ -111,6 +111,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         //Attach  Button   demo_1 and Demo_2  to   Layout Object  ...
         Demo_1 = (Button) findViewById(R.id.Demo_1);
         Demo_2 = (Button) findViewById(R.id.Demo_2);
+        Video_Remote = (Button) findViewById(R.id.Video);
 
         service_init();
 
@@ -118,6 +119,17 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
         // we must initialise a Bluethoot before  we use Button Demo 1 and Demo 2 ...
         Demo_1.setEnabled(false);
         Demo_2.setEnabled(false);
+        Video_Remote.setEnabled(false);
+
+        Video_Remote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RemoteControlling_Activity.class);
+                startActivity(intent);
+                // finish();
+
+            }
+        });
 
         // Handle Demo  1 ...
         Demo_1.setOnClickListener(new View.OnClickListener() {
@@ -167,6 +179,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                             // when Service is diconnect   all  Demo must be disable ....
                             Demo_1.setEnabled(false);
                             Demo_2.setEnabled(false);
+                            Video_Remote.setEnabled(false);
 
                         }
         			}
@@ -183,6 +196,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
 				try {
 					//send data to service
 					value = message.getBytes("UTF-8");
+                    // send to bluethoot Serial ...
 					mService.writeRXCharacteristic(value);
 					//Update the log with time stamp
 					String currentDateTimeString = DateFormat.getTimeInstance().format(new Date());
@@ -251,6 +265,7 @@ public class MainActivity extends Activity implements RadioGroup.OnCheckedChange
                          //  Enable Demo Button ...
                          Demo_1.setEnabled(true);
                          Demo_2.setEnabled(true);
+                         Video_Remote.setEnabled(true);
                      }
             	 });
             }

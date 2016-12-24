@@ -79,6 +79,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
+				// Send to serial Bluethoot
 				MainActivity.mService.writeRXCharacteristic(value);
 			}
 		});
@@ -138,6 +139,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
+				// Send to Bluethoot
 					MainActivity.mService.writeRXCharacteristic(value);
 
 
@@ -233,6 +235,7 @@ public class GPS_Temp_Press_Activity extends Activity {
 						if(gps.canGetLocation()) {
 
 							latitude = gps.getLatitude();
+
 							longitude = gps.getLongitude();
 						}else {
 
